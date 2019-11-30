@@ -41,6 +41,22 @@ public class GraphingCalculatorSebTung extends Application {
         System.out.println("This is the median: " + StatisticsOperations.findMedian(testList));
         System.out.println("This is the mode " + StatisticsOperations.findMode(testList));
 
+        CubicEq function = new CubicEq();
+        function.setFunction(-1, -6, 11, -6);
+        System.out.println(function.findRoots());
+        
+        CubicEq function2 = new CubicEq();
+        function2.setFunction(1, -5, 3, -6);
+        System.out.println(function2.findRoots());
+        
+        CubicEq function3 = new CubicEq();
+        function3.setFunction(1, 0, -2, 0);
+        System.out.println(function3.findRoots());
+        
+        CubicEq function4 = new CubicEq();
+        function4.setFunction(1, 0, 0, 9);
+        System.out.println(function4.findRoots());
+        
         launch(args);
     }
 
