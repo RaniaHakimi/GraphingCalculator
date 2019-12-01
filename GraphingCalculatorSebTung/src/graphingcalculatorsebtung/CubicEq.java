@@ -67,7 +67,7 @@ public class CubicEq {
         if (criticalNumbers.size() < 2) {
             roots.add(findRoot(-500.0, 500.0));
         } else {
-            //if f(c1) * f(c2) < 0
+            //if f(c1) * f(c2) < 0 (one is positive and one is negative)
             if ((evaluateFunction(criticalNumbers.get(0)) * evaluateFunction(criticalNumbers.get(1)) < 0)) {
                 //3 roots
                 roots.add(findRoot(-100.0, criticalNumbers.get(0)));
