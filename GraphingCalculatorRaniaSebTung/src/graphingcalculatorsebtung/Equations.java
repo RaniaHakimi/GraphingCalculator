@@ -1,3 +1,5 @@
+package graphingcalculatorsebtung;
+
 import java.util.ArrayList;
 
 public class Equations {
