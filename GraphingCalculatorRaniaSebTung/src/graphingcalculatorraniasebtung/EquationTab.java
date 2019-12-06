@@ -55,4 +55,29 @@ public class EquationTab extends Tab{
         StackPane pane3 = new StackPane();
         setContent(hBoxQuadratic);
     }
+    
+    private void receiveUpdatedTFs() {
+        tFContent.put("tfa", tfa.getText());
+        tFContent.put("tfb", tfb.getText());
+        tFContent.put("tfc", tfc.getText());
+        tFContent.put("tfQuadraticRoots", tfQuadraticRoots.getText());
+    }
+
+    private void initializeTFs() {
+        tfa.setText(tFContent.get("tfa"));
+        tfb.setText(tFContent.get("tfb"));
+        tfc.setText(tFContent.get("tfc"));
+        tfQuadraticRoots.setText(tFContent.get("tfQuaraticRoots"));
+    }
+    
+    public HashMap<String, String> getTFContent() {
+        receiveUpdatedTFs(); //gets most recent content in TFs
+        return tFContent;
+    }
+
+    //for loading
+    public void setTFContent(HashMap<String, String> saveData) { //may need to be updated
+        this.tFContent = saveData;
+        initializeTFs(); //initializes all TFs with savedata
+    }
 }

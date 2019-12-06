@@ -89,5 +89,34 @@ public class GeometricOperationTab extends Tab {
         setContent(pane2);
     }
     
+    private void receiveUpdatedTFs() {
+        tFContent.put("tfSide", tfSide.getText());
+        tFContent.put("tfNumberOfSides", tfNumberOfSides.getText());
+        tFContent.put("tfPolygonResult", tfPolygonResult.getText());
+        tFContent.put("tfRadius", tfRadius.getText());
+        tFContent.put("tfCircleResult", tfCircleResult.getText());
+
+    }
+
+    private void initializeTFs() {
+        tfSide.setText(tFContent.get("tfSide"));
+        tfNumberOfSides.setText(tFContent.get("tfNumberOfSides"));
+        tfPolygonResult.setText(tFContent.get("tfPolygonResult"));
+        tfRadius.setText(tFContent.get("tfRadius"));
+        tfCircleResult.setText(tFContent.get("tfCircleResult"));
+
+    }
+    
+    public HashMap<String, String> getTFContent() {
+        receiveUpdatedTFs(); //gets most recent content in TFs
+        return tFContent;
+    }
+
+    //for loading
+    public void setTFContent(HashMap<String, String> saveData) { //may need to be updated
+        this.tFContent = saveData;
+        initializeTFs(); //initializes all TFs with savedata
+    }
+    
     
 }

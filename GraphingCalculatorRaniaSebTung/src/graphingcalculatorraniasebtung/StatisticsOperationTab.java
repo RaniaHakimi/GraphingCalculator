@@ -116,4 +116,38 @@ public class StatisticsOperationTab extends Tab {
         pane4.getChildren().add(vBox4);
         setContent(pane4);
     }
+
+    private void receiveUpdatedTFs() {
+        tFContent.put("tfMeanExpression", tfMeanExpression.getText());
+        tFContent.put("tfMeanResult", tfMeanResult.getText());
+        tFContent.put("tfMedianExpression", tfMedianExpression.getText());
+        tFContent.put("tfMedianResult", tfMedianResult.getText());
+        tFContent.put("tfModeExpression", tfModeExpression.getText());
+        tFContent.put("tfModeResult", tfModeResult.getText());
+        tFContent.put("tfPatternDeviationExpression", tfPatternDeviationExpression.getText());
+        tFContent.put("tfPatternDeviationResult", tfPatternDeviationResult.getText());
+    }
+
+    private void initializeTFs() {
+        tfMeanExpression.setText(tFContent.get("tfMeanExpression"));
+        tfMeanResult.setText(tFContent.get("tfMeanResult"));
+        tfMedianExpression.setText(tFContent.get("tfMedianExpression"));
+        tfMedianResult.setText(tFContent.get("tfMedianResult"));
+        tfModeExpression.setText(tFContent.get("tfModeExpression"));
+        tfModeResult.setText(tFContent.get("tfModeResult"));
+        tfPatternDeviationExpression.setText(tFContent.get("tfPatternDeviationExpression"));
+        tfPatternDeviationResult.setText(tFContent.get("tfPatternDeviationResult"));
+
+    }
+
+    public HashMap<String, String> getTFContent() {
+        receiveUpdatedTFs(); //gets most recent content in TFs
+        return tFContent;
+    }
+
+    //for loading
+    public void setTFContent(HashMap<String, String> saveData) { //may need to be updated
+        this.tFContent = saveData;
+        initializeTFs(); //initializes all TFs with savedata
+    }
 }

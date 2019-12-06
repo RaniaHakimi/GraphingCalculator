@@ -5,6 +5,7 @@
  */
 package graphingcalculatorraniasebtung;
 
+import java.util.HashMap;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
@@ -19,12 +20,12 @@ import javafx.scene.layout.VBox;
  *
  * @author mrbea
  */
-public class GraphingTab extends Tab{
+public class BarTab extends Tab{
     // Text field for tab 5
 
     private TextField tfBarGraphInput = new TextField();
 
-    GraphingTab() {
+    BarTab() {
         // Tab 5 Design
         super("Graphs");
         VBox vBox5 = new VBox();
