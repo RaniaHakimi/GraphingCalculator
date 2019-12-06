@@ -60,23 +60,27 @@ public class ArithmeticOperationTab extends Tab{
         setContent(pane1);
     }
     
-    
-    
-    void setTFExpression(TextField text){
-        this.tfExpression = text;
+    private void receiveUpdatedTFs() {
+        tFContent.put("tfExpression", tfExpression.getText());
+        tFContent.put("tfResult", tfResult.getText());
+    }
+
+    private void initializeTFs() {
+        tfExpression.setText(tFContent.get("tfExpression"));
+        tfResult.setText(tFContent.get("tfResult"));
     }
     
-    TextField getTFExpression(){
-        return tfExpression;
+    public HashMap<String, String> getTFContent() {
+        receiveUpdatedTFs(); //gets most recent content in TFs
+        return tFContent;
+    }
+
+    //for loading
+    public void setTFContent(HashMap<String, String> saveData) { //may need to be updated
+        this.tFContent = saveData;
+        initializeTFs(); //initializes all TFs with savedata
     }
     
-    void setTFResult(TextField text){
-        this.tfResult = text;
-    }
-    
-    TextField getTFResult(){
-        return tfResult;
-    }
 
     
 }
