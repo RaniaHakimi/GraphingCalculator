@@ -30,19 +30,19 @@ class Polygon extends GeometricObject {
     public int getNumberOfSides() {
         return numberOfSides;
     }
-    
-    public void setNumberOfSides(int numSides){
+
+    public void setNumberOfSides(int numSides) {
         this.numberOfSides = numSides;
     }
-    
-    public double getSideLength(){
+
+    public double getSideLength() {
         return sideLength;
     }
-    
-    public void setSideLength(double length){
+
+    public void setSideLength(double length) {
         this.sideLength = length;
     }
-  
+
     public double getPerimeter() {
         return sideLength * numberOfSides;
     }
@@ -52,25 +52,24 @@ class Polygon extends GeometricObject {
     }
 }
 
+abstract class Circle extends GeometricObject {
 
-abstract class Circle extends GeometricObject{
     private double radius;
 
-    
-    public double getRadius(){
+    public double getRadius() {
         return radius;
     }
-    
-    public void setRadius(double rad){
+
+    public void setRadius(double rad) {
         this.radius = rad;
     }
-  
+
     public double getPerimeter() {
-        return 2*Math.PI*radius;
+        return 2 * Math.PI * radius;
     }
 
     public double getArea() {
-        return Math.PI*Math.pow(radius, 2);
+        return Math.PI * Math.pow(radius, 2);
     }
-    
+
 }

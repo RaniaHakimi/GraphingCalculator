@@ -305,7 +305,7 @@ public class CalculatorOperationsPane extends Application {
     
     public HashMap<String, String> getTFContent(){
         //recieveUpdatedTFs()
-        updateTab1TFs();
+        receiveTab1UpdatedTFs();
         return tFContent;
     }
     
@@ -314,7 +314,17 @@ public class CalculatorOperationsPane extends Application {
         this.tFContent = saveData;
     }
     
-    private 
+    private void receiveAllUpdatedTFs(){
+        receiveTab1UpdatedTFs();
+         receiveTab2UpdatedTFs();
+          receiveTab3UpdatedTFs();
+           receiveTab4UpdatedTFs();
+            receiveTab5UpdatedTFs();
+    }
+    
+    private void initializeTFs(){
+        
+    }
     
     
     
@@ -325,13 +335,13 @@ public class CalculatorOperationsPane extends Application {
     
     
     // 2 Text field for tab 1
-    public void updateTab1TFs() {
+    private void receiveTab1UpdatedTFs() {
         tFContent.put("tfExpression", tfExpression.getText());
         tFContent.put("tfResult", tfResult.getText());
     }
 
     // 5 Text Fields for tab2
-    public void updateTab2TFs() {
+    public void receiveTab2UpdatedTFs() {
         tFContent.put("tfSide", tfSide.getText());
         tFContent.put("tfNumberOfSides", tfNumberOfSides.getText());
         tFContent.put("tfPolygonResult", tfPolygonResult.getText());
@@ -339,14 +349,8 @@ public class CalculatorOperationsPane extends Application {
         tFContent.put("tfCircleResult", tfCircleResult.getText());
     }
     
-    
-    
-    
-    
-    
-    
     // 4 Text field for tab3
-    public void updateTab3TFs() {
+    public void receiveTab3UpdatedTFs() {
         tFContent.put("tfa", tfa.getText());
         tFContent.put("tfb", tfb.getText());
         tFContent.put("tfc", tfc.getText());
@@ -354,7 +358,7 @@ public class CalculatorOperationsPane extends Application {
     }
     
     // 8 Text fields for tab 4
-    public void updateTab4TFs() {
+    public void receiveTab4UpdatedTFs() {
         tFContent.put("tfMeanExpression", tfMeanExpression.getText());
         tFContent.put("tfMeanResult", tfMeanResult.getText());
         tFContent.put("tfMedianExpression", tfMedianExpression.getText());
@@ -366,7 +370,7 @@ public class CalculatorOperationsPane extends Application {
     }
 
     // Text field for tab 5
-    public void updateTab5TFs() {
+    public void receiveTab5UpdatedTFs() {
         tFContent.put("tfBarGraphInput", tfBarGraphInput.getText());
     }
 

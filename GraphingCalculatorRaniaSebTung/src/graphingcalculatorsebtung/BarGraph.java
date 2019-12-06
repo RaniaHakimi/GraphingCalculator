@@ -1,3 +1,5 @@
+package graphingcalculatorsebtung;
+
 
 public class BarGraph {
 
