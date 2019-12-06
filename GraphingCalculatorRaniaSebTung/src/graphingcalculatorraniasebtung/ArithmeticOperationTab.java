@@ -25,10 +25,10 @@ import javafx.stage.Stage;
 
 public class ArithmeticOperationTab extends Tab{
     
-    private HashMap<String, String> tFContent = new HashMap();
+    //private HashMap<String, String> tFContent = new HashMap();
     // 2 Text field for tab 1
-    private TextField tfExpression = new TextField();
-    private TextField tfResult = new TextField();
+    private static TextField tfExpression = new TextField();
+    private static TextField tfResult = new TextField();
     
     ArithmeticOperationTab(){
         // hBox1 for Expression and Result
@@ -60,26 +60,26 @@ public class ArithmeticOperationTab extends Tab{
         setContent(pane1);
     }
     
-    private void receiveUpdatedTFs() {
-        tFContent.put("tfExpression", tfExpression.getText());
-        tFContent.put("tfResult", tfResult.getText());
+    protected static void receiveUpdatedTFs() {
+        CalculatorOperationsPane.tFContent.put("tfExpression", tfExpression.getText());
+        CalculatorOperationsPane.tFContent.put("tfResult", tfResult.getText());
     }
 
-    private void initializeTFs() {
-        tfExpression.setText(tFContent.get("tfExpression"));
-        tfResult.setText(tFContent.get("tfResult"));
+    protected static void initializeTFs() {
+        tfExpression.setText(CalculatorOperationsPane.tFContent.get("tfExpression"));
+        tfResult.setText(CalculatorOperationsPane.tFContent.get("tfResult"));
     }
     
-    public HashMap<String, String> getTFContent() {
-        receiveUpdatedTFs(); //gets most recent content in TFs
-        return tFContent;
-    }
+//    public HashMap<String, String> getTFContent() {
+//        receiveUpdatedTFs(); //gets most recent content in TFs
+//        return tFContent;
+//    }
 
-    //for loading
-    public void setTFContent(HashMap<String, String> saveData) { //may need to be updated
-        this.tFContent = saveData;
-        initializeTFs(); //initializes all TFs with savedata
-    }
+//    //for loading
+//    public void setTFContent(HashMap<String, String> saveData) { //may need to be updated
+//        this.tFContent = saveData;
+//        initializeTFs(); //initializes all TFs with savedata
+//    }
     
 
     

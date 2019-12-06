@@ -5,12 +5,8 @@
  */
 package graphingcalculatorraniasebtung;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.io.File;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -18,19 +14,22 @@ import javafx.stage.Stage;
  *
  * @author Sebastian Brann-Singer
  */
-public class GraphingCalculatorRaniaSebTung extends Application {
+public class CalculatorMain extends Application {
 
+    protected static CalculatorOperationsPane calculatorOperationPane = new CalculatorOperationsPane();
+    //protected static CalculatorMenu;
+    
     @Override
     public void start(Stage stage) throws Exception {
 
-        CalculatorOperationsPane calculatorOperationPane = new CalculatorOperationsPane();
-        
-        //load save
-        
-        
-        
+        //create autosave.dat if it does not exist (first time running application)
+        File saveFile = new File("autosave.dat");
+
+        saveFile.createNewFile(); //creates file if it does not exist already
+        //load autosave
+        Save.autoload();
+
         Scene scene = new Scene(calculatorOperationPane, 750, 500);
- //Scene scene = new Scene(tabPane, 750, 500);
         stage.setTitle("Graphing Calculator"); // Set the window title
         stage.setScene(scene);
         stage.show();
@@ -62,7 +61,7 @@ public class GraphingCalculatorRaniaSebTung extends Application {
 //        CubicEq function4 = new CubicEq();
 //        function4.setFunction(1, 0, 0, 9);
 //        System.out.println(function4.findRoots());
-        
+
         launch(args);
     }
 

@@ -20,13 +20,12 @@ import javafx.scene.layout.VBox;
  */
 public class GeometricOperationTab extends Tab {
 
-    private HashMap<String, String> tFContent = new HashMap();
     // 5 Text Fields for tab2
-    private TextField tfSide = new TextField();
-    private TextField tfNumberOfSides = new TextField();
-    private TextField tfPolygonResult = new TextField();
-    private TextField tfRadius = new TextField();
-    private TextField tfCircleResult = new TextField();
+    private static TextField tfSide = new TextField();
+    private static TextField tfNumberOfSides = new TextField();
+    private static TextField tfPolygonResult = new TextField();
+    private static TextField tfRadius = new TextField();
+    private static TextField tfCircleResult = new TextField();
 
     GeometricOperationTab() {
         // Design Tab2
@@ -89,34 +88,23 @@ public class GeometricOperationTab extends Tab {
         setContent(pane2);
     }
     
-    private void receiveUpdatedTFs() {
-        tFContent.put("tfSide", tfSide.getText());
-        tFContent.put("tfNumberOfSides", tfNumberOfSides.getText());
-        tFContent.put("tfPolygonResult", tfPolygonResult.getText());
-        tFContent.put("tfRadius", tfRadius.getText());
-        tFContent.put("tfCircleResult", tfCircleResult.getText());
-
+    protected static void receiveUpdatedTFs() {
+        CalculatorOperationsPane.tFContent.put("tfSide", tfSide.getText());
+        CalculatorOperationsPane.tFContent.put("tfNumberOfSides", tfNumberOfSides.getText());
+        CalculatorOperationsPane.tFContent.put("tfPolygonResult", tfPolygonResult.getText());
+        CalculatorOperationsPane.tFContent.put("tfRadius", tfRadius.getText());
+        CalculatorOperationsPane.tFContent.put("tfCircleResult", tfCircleResult.getText());
     }
 
-    private void initializeTFs() {
-        tfSide.setText(tFContent.get("tfSide"));
-        tfNumberOfSides.setText(tFContent.get("tfNumberOfSides"));
-        tfPolygonResult.setText(tFContent.get("tfPolygonResult"));
-        tfRadius.setText(tFContent.get("tfRadius"));
-        tfCircleResult.setText(tFContent.get("tfCircleResult"));
-
+    protected static void initializeTFs() {
+        tfSide.setText(CalculatorOperationsPane.tFContent.get("tfSide"));
+        tfNumberOfSides.setText(CalculatorOperationsPane.tFContent.get("tfNumberOfSides"));
+        tfPolygonResult.setText(CalculatorOperationsPane.tFContent.get("tfPolygonResult"));
+        tfRadius.setText(CalculatorOperationsPane.tFContent.get("tfRadius"));
+        tfCircleResult.setText(CalculatorOperationsPane.tFContent.get("tfCircleResult"));
     }
     
-    public HashMap<String, String> getTFContent() {
-        receiveUpdatedTFs(); //gets most recent content in TFs
-        return tFContent;
-    }
-
-    //for loading
-    public void setTFContent(HashMap<String, String> saveData) { //may need to be updated
-        this.tFContent = saveData;
-        initializeTFs(); //initializes all TFs with savedata
-    }
+   
     
     
 }

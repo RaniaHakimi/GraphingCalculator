@@ -19,14 +19,8 @@ import java.util.HashMap;
  */
 public class Save {
 
-    private static CalculatorOperationsPane pane = new CalculatorOperationsPane();
-
-    Save(CalculatorOperationsPane pane) {
-        this.pane = pane;
-    }
-
     public static void save(String filename) throws IOException {
-        HashMap<String, String> calculatorSave = pane.getTFContent();
+        HashMap<String, String> calculatorSave = CalculatorMain.calculatorOperationPane.getTFContent();
 
         try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(filename));) {
             output.writeObject(calculatorSave);
@@ -41,7 +35,7 @@ public class Save {
     public static void load(String filename) throws IOException, ClassNotFoundException {
         //reads fred and barney from bin file and prints their toString
         try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(filename));) {
-            pane.setTFContent((HashMap<String, String>) (input.readObject()));
+            CalculatorMain.calculatorOperationPane.setTFContent((HashMap<String, String>) (input.readObject()));
         } //auto-closes file
     }
 
