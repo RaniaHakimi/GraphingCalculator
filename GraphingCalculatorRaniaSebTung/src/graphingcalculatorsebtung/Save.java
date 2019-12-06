@@ -11,4 +11,23 @@ package graphingcalculatorsebtung;
  */
 public class Save {
     
+    
+    public static void save(String filename){
+        
+    }
+    
+    public static void autosave(){
+        save("autosave.txt");
+    }
+    
+    public static void load(String filename){
+        //Map<String,String> //set textField content to file read
+        
+    }
+    
+    public static void autoload(){
+        load("autosave.txt");
+    }
+    
+    
 }
