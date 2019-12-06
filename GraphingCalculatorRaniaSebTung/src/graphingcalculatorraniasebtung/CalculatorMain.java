@@ -24,10 +24,13 @@ public class CalculatorMain extends Application {
 
         //create autosave.dat if it does not exist (first time running application)
         File saveFile = new File("autosave.dat");
-
-        saveFile.createNewFile(); //creates file if it does not exist already
-        //load autosave
-        Save.autoload();
+        //creates file 
+        if (!saveFile.createNewFile()){ //if it does not exist already
+             //load autosave
+            Save.autoload();
+            
+        }
+       
 
         Scene scene = new Scene(calculatorOperationPane, 750, 500);
         stage.setTitle("Graphing Calculator"); // Set the window title

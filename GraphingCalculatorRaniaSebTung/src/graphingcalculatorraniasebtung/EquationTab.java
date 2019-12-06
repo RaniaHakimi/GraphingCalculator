@@ -21,12 +21,11 @@ import javafx.scene.layout.VBox;
  */
 public class EquationTab extends Tab{
 
-    private HashMap<String, String> tFContent = new HashMap();
     // 8 Text field for tab3
-    private TextField tfa = new TextField();
-    private TextField tfb = new TextField();
-    private TextField tfc = new TextField();
-    private TextField tfQuadraticRoots = new TextField();
+    private static TextField tfa = new TextField();
+    private static TextField tfb = new TextField();
+    private static TextField tfc = new TextField();
+    private static TextField tfQuadraticRoots = new TextField();
 
     EquationTab() {
         // Tab 3 Design
@@ -52,32 +51,23 @@ public class EquationTab extends Tab{
         hBoxQuadratic.getChildren().addAll(vBoxQuadraticInputs, vBoxQuadraticOutputs);
         VBox vBox3 = new VBox();
         vBox3.getChildren().add(hBoxQuadratic);
-        StackPane pane3 = new StackPane();
+        //StackPane pane3 = new StackPane();
         setContent(hBoxQuadratic);
     }
     
-    private void receiveUpdatedTFs() {
-        tFContent.put("tfa", tfa.getText());
-        tFContent.put("tfb", tfb.getText());
-        tFContent.put("tfc", tfc.getText());
-        tFContent.put("tfQuadraticRoots", tfQuadraticRoots.getText());
+    protected static void receiveUpdatedTFs() {
+        CalculatorOperationsPane.tFContent.put("tfa", tfa.getText());
+        CalculatorOperationsPane.tFContent.put("tfb", tfb.getText());
+        CalculatorOperationsPane.tFContent.put("tfc", tfc.getText());
+        CalculatorOperationsPane.tFContent.put("tfQuadraticRoots", tfQuadraticRoots.getText());
     }
 
-    private void initializeTFs() {
-        tfa.setText(tFContent.get("tfa"));
-        tfb.setText(tFContent.get("tfb"));
-        tfc.setText(tFContent.get("tfc"));
-        tfQuadraticRoots.setText(tFContent.get("tfQuaraticRoots"));
+    protected static void initializeTFs() {
+        tfa.setText(CalculatorOperationsPane.tFContent.get("tfa"));
+        tfb.setText(CalculatorOperationsPane.tFContent.get("tfb"));
+        tfc.setText(CalculatorOperationsPane.tFContent.get("tfc"));
+        tfQuadraticRoots.setText(CalculatorOperationsPane.tFContent.get("tfQuaraticRoots"));
     }
     
-    public HashMap<String, String> getTFContent() {
-        receiveUpdatedTFs(); //gets most recent content in TFs
-        return tFContent;
-    }
-
-    //for loading
-    public void setTFContent(HashMap<String, String> saveData) { //may need to be updated
-        this.tFContent = saveData;
-        initializeTFs(); //initializes all TFs with savedata
-    }
+ 
 }

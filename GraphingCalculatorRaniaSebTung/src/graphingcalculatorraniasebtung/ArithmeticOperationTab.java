@@ -6,7 +6,10 @@ package graphingcalculatorraniasebtung;
  * and open the template in the editor.
  */
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -50,6 +53,11 @@ public class ArithmeticOperationTab extends Tab{
             String str = tfExpression.getText();
             double result = EvaluateExpression.evaluateExpression(str);
             tfResult.setText(result + "");
+            try {
+                Save.autosave();
+            } catch (IOException ex) {
+                System.out.println("Didnt save correctly");
+            }
         });
         hBox2.getChildren().addAll(btCalculate);
         hBox2.setAlignment(Pos.CENTER);
