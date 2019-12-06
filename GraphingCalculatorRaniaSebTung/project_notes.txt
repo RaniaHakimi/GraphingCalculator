@@ -1,1 +1,6 @@
 12/6 Began Graphing features
+
+Make Calculator new extension of Application
+We should tab pane calculator to extend pane (maybe CalculatorOperationsPane)
+Add CalculatorOperationsPane to Calulator
+Add CalculatorMenu to Calculator

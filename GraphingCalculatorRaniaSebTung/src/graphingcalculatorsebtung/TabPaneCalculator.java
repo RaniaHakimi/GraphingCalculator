@@ -18,6 +18,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class TabPaneCalculator extends Application {
+    
+        private ArrayList<String> textFieldContent = new ArrayList();
 	// 2 Text field for tab 1
 	private TextField tfExpression = new TextField();
 	private TextField tfResult = new TextField();
@@ -290,6 +292,47 @@ public class TabPaneCalculator extends Application {
 		primaryStage.show(); // Display the window
 	}
 
+        
+        //setters and getters for textfields (accessed by save features)
+        // 2 Text field for tab 1
+        
+        public void getTab1textFields(){
+            tfExpression.getText();
+            //return textFields;
+        }
+        
+//	private TextField tfExpression = new TextField();
+//	private TextField tfResult = new TextField();
+//
+//	// 5 Text Fields for tab2
+//	private TextField tfSide = new TextField();
+//	private TextField tfNumberOfSides = new TextField();
+//	private TextField tfPolygonResult = new TextField();
+//	private TextField tfRadius = new TextField();
+//	private TextField tfCircleResult = new TextField();
+//
+//	// 8 Text field for tab3
+//	private TextField tfa = new TextField();
+//	private TextField tfb = new TextField();
+//	private TextField tfc = new TextField();
+//	private TextField tfQuadraticRoots = new TextField();
+//
+//	// 8 Text fields for tab 4
+//	private TextField tfMeanExpression = new TextField();
+//	private TextField tfMeanResult = new TextField();
+//	private TextField tfMedianExpression = new TextField();
+//	private TextField tfMedianResult = new TextField();
+//	private TextField tfModeExpression = new TextField();
+//	private TextField tfModeResult = new TextField();
+//	private TextField tfPatternDeviationExpression = new TextField();
+//	private TextField tfPatternDeviationResult = new TextField();
+//
+//	//
+//	private TextField tfBarGraphInput = new TextField();
+        
+        
+        
+        
 	/**
 	 * The main method is only needed for the IDE with limited JavaFX support. Not
 	 * needed for running from the command line. line.
