@@ -20,10 +20,10 @@ import javafx.scene.layout.VBox;
  *
  * @author mrbea
  */
-public class BarTab extends Tab{
+public class BarTab extends Tab {
     // Text field for tab 5
 
-    private TextField tfBarGraphInput = new TextField();
+    protected static TextField tfBarGraphInput = new TextField();
 
     BarTab() {
         // Tab 5 Design
@@ -57,5 +57,13 @@ public class BarTab extends Tab{
 
         vBox5.getChildren().add(hBoxBarGraph);
         setContent(vBox5);
+    }
+
+    protected static void receiveUpdatedTFs() {
+        CalculatorOperationsPane.tFContent.put("tfBarGraphInput", tfBarGraphInput.getText());
+    }
+
+    protected static void initializeTFs() {
+        tfBarGraphInput.setText(CalculatorOperationsPane.tFContent.get("tfBarGraphInput"));
     }
 }
