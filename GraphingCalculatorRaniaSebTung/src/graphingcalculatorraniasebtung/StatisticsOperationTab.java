@@ -20,17 +20,15 @@ import javafx.scene.layout.VBox;
  */
 public class StatisticsOperationTab extends Tab {
 
-    private HashMap<String, String> tFContent = new HashMap();
-
     // 8 Text fields for tab 4
-    private TextField tfMeanExpression = new TextField();
-    private TextField tfMeanResult = new TextField();
-    private TextField tfMedianExpression = new TextField();
-    private TextField tfMedianResult = new TextField();
-    private TextField tfModeExpression = new TextField();
-    private TextField tfModeResult = new TextField();
-    private TextField tfPatternDeviationExpression = new TextField();
-    private TextField tfPatternDeviationResult = new TextField();
+    private static TextField tfMeanExpression = new TextField();
+    private static TextField tfMeanResult = new TextField();
+    private static TextField tfMedianExpression = new TextField();
+    private static TextField tfMedianResult = new TextField();
+    private static TextField tfModeExpression = new TextField();
+    private static TextField tfModeResult = new TextField();
+    private static TextField tfPatternDeviationExpression = new TextField();
+    private static TextField tfPatternDeviationResult = new TextField();
 
     StatisticsOperationTab() {
         // Tab 4 Design
@@ -117,37 +115,27 @@ public class StatisticsOperationTab extends Tab {
         setContent(pane4);
     }
 
-    private void receiveUpdatedTFs() {
-        tFContent.put("tfMeanExpression", tfMeanExpression.getText());
-        tFContent.put("tfMeanResult", tfMeanResult.getText());
-        tFContent.put("tfMedianExpression", tfMedianExpression.getText());
-        tFContent.put("tfMedianResult", tfMedianResult.getText());
-        tFContent.put("tfModeExpression", tfModeExpression.getText());
-        tFContent.put("tfModeResult", tfModeResult.getText());
-        tFContent.put("tfPatternDeviationExpression", tfPatternDeviationExpression.getText());
-        tFContent.put("tfPatternDeviationResult", tfPatternDeviationResult.getText());
+    protected static void receiveUpdatedTFs() {
+        CalculatorOperationsPane.tFContent.put("tfMeanExpression", tfMeanExpression.getText());
+        CalculatorOperationsPane.tFContent.put("tfMeanResult", tfMeanResult.getText());
+        CalculatorOperationsPane.tFContent.put("tfMedianExpression", tfMedianExpression.getText());
+        CalculatorOperationsPane.tFContent.put("tfMedianResult", tfMedianResult.getText());
+        CalculatorOperationsPane.tFContent.put("tfModeExpression", tfModeExpression.getText());
+        CalculatorOperationsPane.tFContent.put("tfModeResult", tfModeResult.getText());
+        CalculatorOperationsPane.tFContent.put("tfPatternDeviationExpression", tfPatternDeviationExpression.getText());
+        CalculatorOperationsPane.tFContent.put("tfPatternDeviationResult", tfPatternDeviationResult.getText());
     }
 
-    private void initializeTFs() {
-        tfMeanExpression.setText(tFContent.get("tfMeanExpression"));
-        tfMeanResult.setText(tFContent.get("tfMeanResult"));
-        tfMedianExpression.setText(tFContent.get("tfMedianExpression"));
-        tfMedianResult.setText(tFContent.get("tfMedianResult"));
-        tfModeExpression.setText(tFContent.get("tfModeExpression"));
-        tfModeResult.setText(tFContent.get("tfModeResult"));
-        tfPatternDeviationExpression.setText(tFContent.get("tfPatternDeviationExpression"));
-        tfPatternDeviationResult.setText(tFContent.get("tfPatternDeviationResult"));
+    protected static void initializeTFs() {
+        tfMeanExpression.setText(CalculatorOperationsPane.tFContent.get("tfMeanExpression"));
+        tfMeanResult.setText(CalculatorOperationsPane.tFContent.get("tfMeanResult"));
+        tfMedianExpression.setText(CalculatorOperationsPane.tFContent.get("tfMedianExpression"));
+        tfMedianResult.setText(CalculatorOperationsPane.tFContent.get("tfMedianResult"));
+        tfModeExpression.setText(CalculatorOperationsPane.tFContent.get("tfModeExpression"));
+        tfModeResult.setText(CalculatorOperationsPane.tFContent.get("tfModeResult"));
+        tfPatternDeviationExpression.setText(CalculatorOperationsPane.tFContent.get("tfPatternDeviationExpression"));
+        tfPatternDeviationResult.setText(CalculatorOperationsPane.tFContent.get("tfPatternDeviationResult"));
 
     }
 
-    public HashMap<String, String> getTFContent() {
-        receiveUpdatedTFs(); //gets most recent content in TFs
-        return tFContent;
-    }
-
-    //for loading
-    public void setTFContent(HashMap<String, String> saveData) { //may need to be updated
-        this.tFContent = saveData;
-        initializeTFs(); //initializes all TFs with savedata
-    }
 }
