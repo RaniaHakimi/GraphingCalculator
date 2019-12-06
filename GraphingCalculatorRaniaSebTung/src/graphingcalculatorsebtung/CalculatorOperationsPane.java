@@ -1,3 +1,5 @@
+package graphingcalculatorsebtung;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +24,7 @@ import javafx.stage.Stage;
 
 public class CalculatorOperationsPane extends Application {
 
-    private Map<String, String> textFieldContent = new HashMap();
+    private HashMap<String, String> tFContent = new HashMap();
     // 2 Text field for tab 1
     private TextField tfExpression = new TextField();
     private TextField tfResult = new TextField();
@@ -295,50 +297,77 @@ public class CalculatorOperationsPane extends Application {
         primaryStage.show(); // Display the window
     }
 
+    //save calculator //load calculator
+    
+    
+    
     //setters and getters for textfields (accessed by save features)
     
-    public Map<String, String> getTextFieldContent(){
-        return textFieldContent;
+    public HashMap<String, String> getTFContent(){
+        //recieveUpdatedTFs()
+        updateTab1TFs();
+        return tFContent;
     }
+    
+    public void setTFContent(HashMap<String, String> saveData){
+        //initializeTFs
+        this.tFContent = saveData;
+    }
+    
+    private 
+    
+    
+    
+    
+    
+    
+    
+    
     
     // 2 Text field for tab 1
     public void updateTab1TFs() {
-        textFieldContent.put("tfExpression", tfExpression.getText());
-        textFieldContent.put("tfResult", tfResult.getText());
+        tFContent.put("tfExpression", tfExpression.getText());
+        tFContent.put("tfResult", tfResult.getText());
     }
 
     // 5 Text Fields for tab2
     public void updateTab2TFs() {
-        textFieldContent.put("tfSide", tfSide.getText());
-        textFieldContent.put("tfNumberOfSides", tfNumberOfSides.getText());
-        textFieldContent.put("tfPolygonResult", tfPolygonResult.getText());
-        textFieldContent.put("tfRadius", tfRadius.getText());
-        textFieldContent.put("tfCircleResult", tfCircleResult.getText());
+        tFContent.put("tfSide", tfSide.getText());
+        tFContent.put("tfNumberOfSides", tfNumberOfSides.getText());
+        tFContent.put("tfPolygonResult", tfPolygonResult.getText());
+        tFContent.put("tfRadius", tfRadius.getText());
+        tFContent.put("tfCircleResult", tfCircleResult.getText());
     }
+    
+    
+    
+    
+    
+    
     
     // 4 Text field for tab3
     public void updateTab3TFs() {
-        textFieldContent.put("tfa", tfa.getText());
-        textFieldContent.put("tfb", tfb.getText());
-        textFieldContent.put("tfc", tfc.getText());
-        textFieldContent.put("tfQuadraticRoots", tfQuadraticRoots.getText());
+        tFContent.put("tfa", tfa.getText());
+        tFContent.put("tfb", tfb.getText());
+        tFContent.put("tfc", tfc.getText());
+        tFContent.put("tfQuadraticRoots", tfQuadraticRoots.getText());
     }
     
     // 8 Text fields for tab 4
     public void updateTab4TFs() {
-        textFieldContent.put("tfMeanExpression", tfMeanExpression.getText());
-        textFieldContent.put("tfMeanResult", tfMeanResult.getText());
-        textFieldContent.put("tfMedianExpression", tfMedianExpression.getText());
-        textFieldContent.put("tfMedianResult", tfMedianResult.getText());
-        textFieldContent.put("tfModeExpression", tfModeExpression.getText());
-        textFieldContent.put("tfModeResult", tfModeResult.getText());
-        textFieldContent.put("tfPatternDeviationExpression", tfPatternDeviationExpression.getText());
-        textFieldContent.put("tfPatternDeviationResult", tfPatternDeviationResult.getText());
+        tFContent.put("tfMeanExpression", tfMeanExpression.getText());
+        tFContent.put("tfMeanResult", tfMeanResult.getText());
+        tFContent.put("tfMedianExpression", tfMedianExpression.getText());
+        tFContent.put("tfMedianResult", tfMedianResult.getText());
+        tFContent.put("tfModeExpression", tfModeExpression.getText());
+        tFContent.put("tfModeResult", tfModeResult.getText());
+        tFContent.put("tfPatternDeviationExpression", tfPatternDeviationExpression.getText());
+        tFContent.put("tfPatternDeviationResult", tfPatternDeviationResult.getText());
     }
 
     // Text field for tab 5
     public void updateTab5TFs() {
-        textFieldContent.put("tfBarGraphInput", tfBarGraphInput.getText());
+        tFContent.put("tfBarGraphInput", tfBarGraphInput.getText());
     }
 
     /**
