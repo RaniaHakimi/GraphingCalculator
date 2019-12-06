@@ -1,4 +1,4 @@
-package graphingcalculatorsebtung;
+package graphingcalculatorraniasebtung;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,31 +53,27 @@ public class CalculatorOperationsPane extends TabPane {
     // Text field for tab 5
     private TextField tfBarGraphInput = new TextField();
 
-    CalculatorOperationsPane (){
+    CalculatorOperationsPane() {
 
-        // Creating a Tab Pane
-        super();
-        //
-
-       // ArithmeticOperationsTab 
+        ArithmeticOperationTab arithmeticOperationTab = new ArithmeticOperationTab();
+        GeometricOperationTab geometricOperationTab = new GeometricOperationTab();
+        EquationTab equationTab = new EquationTab();
+        StatisticsOperationTab statisticsOperationTab = new StatisticsOperationTab();
+        GraphingTab graphingTab = new GraphingTab();
         
         
-       // getTabs().addAll(tab1, tab2, tab3, tab4, tab5);
+        getTabs().addAll(arithmeticOperationTab, geometricOperationTab, equationTab, statisticsOperationTab, graphingTab);
 
-        //Scene scene = new Scene(tabPane, 750, 500);
-        //primaryStage.setTitle("Graphing Calculator"); // Set the window title
-        //primaryStage.setScene(scene); // Place the scene in the window
-        //primaryStage.show(); // Display the window
     }
 
     //save calculator //load calculator
     //setters and getters for textfields (accessed by save features)
-    
     //for saving
     public HashMap<String, String> getTFContent() {
         receiveAllUpdatedTFs(); //gets most recent content in TFs
         return tFContent;
     }
+
     //for loading
     public void setTFContent(HashMap<String, String> saveData) {
         this.tFContent = saveData;
