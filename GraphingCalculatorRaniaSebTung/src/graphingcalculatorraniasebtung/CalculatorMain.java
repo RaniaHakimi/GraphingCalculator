@@ -8,6 +8,7 @@ package graphingcalculatorraniasebtung;
 import java.io.File;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -17,7 +18,7 @@ import javafx.stage.Stage;
 public class CalculatorMain extends Application {
 
     protected static CalculatorOperationsPane calculatorOperationPane = new CalculatorOperationsPane();
-    //protected static CalculatorMenu;
+    protected static CalculatorMenuBar menuBar = new CalculatorMenuBar();
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -30,9 +31,11 @@ public class CalculatorMain extends Application {
             Save.autoload();
             
         }
-       
-
-        Scene scene = new Scene(calculatorOperationPane, 750, 500);
+        
+        VBox container = new VBox();
+        container.getChildren().addAll(menuBar,calculatorOperationPane);
+        
+        Scene scene = new Scene(container, 750, 500);
         stage.setTitle("Graphing Calculator"); // Set the window title
         stage.setScene(scene);
         stage.show();
