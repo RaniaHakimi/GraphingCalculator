@@ -49,7 +49,7 @@ public class EvaluateExpression {
             } else if (token.charAt(0) == '!') {
                 while (!operatorStack.isEmpty() && operatorStack.peek() == '!') {
                     processingFactorial(operandStack, operatorStack);
-                    System.out.println("Fuck");
+                    
                 }
                 operatorStack.push(token.charAt(0));
             } else if (token.charAt(0) == '*' || token.charAt(0) == '/' || token.charAt(0) == '%') {

@@ -42,17 +42,33 @@ public class GeometricOperationTab extends Tab {
         btPerimeterOfPolygon.setOnAction(e -> {
             String sideLength = tfSide.getText();
             String numberOfSides = tfNumberOfSides.getText();
-            double result = GeometricOperations.perimeterOfPolygon(Integer.parseInt(sideLength),
+            
+            
+            try{
+            if(Double.parseDouble(sideLength) <0 || Integer.parseInt(numberOfSides) < 0){
+                tfPolygonResult.setText("The length and number of sides cannot be negative");
+            } else {
+            double result = GeometricOperations.perimeterOfPolygon(Double.parseDouble(sideLength),
                     Integer.parseInt(numberOfSides));
             tfPolygonResult.setText(result + "");
+            }
+                    
+                    } catch(java.lang.NumberFormatException ex){
+                        tfPolygonResult.setText("Input must be a number");
+            }
         });
         btAreaOfPolygon.setOnAction(e -> {
             String sideLength = tfSide.getText();
             String numberOfSides = tfNumberOfSides.getText();
-            double result = GeometricOperations.areaOfPolygon(Integer.parseInt(sideLength),
+            if(Double.parseDouble(sideLength) <0 || Integer.parseInt(numberOfSides) < 0){
+                tfPolygonResult.setText("The length and number of sides cannot be negative");
+            } else {
+            double result = GeometricOperations.areaOfPolygon(Double.parseDouble(sideLength),
                     Integer.parseInt(numberOfSides));
             tfPolygonResult.setText(result + "");
+            }
         });
+        
         HBox hBoxPolygonButton = new HBox();
         hBoxPolygonButton.getChildren().addAll(btPerimeterOfPolygon, btAreaOfPolygon);
         VBox vBoxPolygon = new VBox();
@@ -68,13 +84,21 @@ public class GeometricOperationTab extends Tab {
         Button btAreaOfCircle = new Button("Calculate the area");
         btPerimeterOfCircle.setOnAction(e -> {
             String radius = tfRadius.getText();
+            if(Integer.parseInt(radius) <0){
+                tfCircleResult.setText("The radius cannot be negative");
+            } else {
             double result = GeometricOperations.perimeterOfCircle(Integer.parseInt(radius));
             tfCircleResult.setText(result + "");
+            }
         });
         btAreaOfCircle.setOnAction(e -> {
             String radius = tfRadius.getText();
+            if(Integer.parseInt(radius) <0){
+                tfCircleResult.setText("The radius cannot be negative");
+            } else {
             double result = GeometricOperations.areaOfCircle(Integer.parseInt(radius));
             tfCircleResult.setText(result + "");
+            }
         });
         HBox hBoxCircleButton = new HBox();
         hBoxCircleButton.getChildren().addAll(btPerimeterOfCircle, btAreaOfCircle);

@@ -73,9 +73,9 @@ public class CubicEq {
             //if f(c1) * f(c2) < 0 (one is positive and one is negative)
             if ((evaluateFunction(criticalNumbers.get(0)) * evaluateFunction(criticalNumbers.get(1)) < 0)) {
                 //3 roots
-                roots.add(findRoot(-100.0, criticalNumbers.get(0)));
+                roots.add(findRoot(-500.0, criticalNumbers.get(0)));
                 roots.add(findRoot(criticalNumbers.get(0), criticalNumbers.get(1)));
-                roots.add(findRoot(criticalNumbers.get(1), 100.0));
+                roots.add(findRoot(criticalNumbers.get(1), 500.0));
             } else {
                 //solve for 1 root
                 if (a > 0) { //leading term is positive

@@ -50,6 +50,8 @@ public class ArithmeticOperationTab extends Tab{
         HBox hBox2 = new HBox(20);
         Button btCalculate = new Button("Calculate");
         btCalculate.setOnAction(e -> {
+            try{
+                 
             String str = tfExpression.getText();
             double result = EvaluateExpression.evaluateExpression(str);
             tfResult.setText(result + "");
@@ -58,6 +60,11 @@ public class ArithmeticOperationTab extends Tab{
             } catch (IOException ex) {
                 System.out.println("Didnt save correctly");
             }
+           } catch(java.util.EmptyStackException ex ){
+              tfResult.setText("Your formatting is wrong, check"); 
+           } catch (java.lang.NumberFormatException ex){
+              tfResult.setText("Numbers only"); 
+           }
         });
         hBox2.getChildren().addAll(btCalculate);
         hBox2.setAlignment(Pos.CENTER);
